@@ -10,7 +10,7 @@ public class DBInterface {
 	}
 
 	public Boolean login(String user, String password) throws SQLException {
-		ResultSet results = userInfo.getData("Users", "password", "FirstName = " + user);
+		ResultSet results = userInfo.getData("Users", "password", "Email = " + user);
 
 		System.out.println("results: \n" + results.getString("password") + "\n" + password);
 
