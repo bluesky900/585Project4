@@ -41,6 +41,7 @@ public class UserData {
 
 		//fields must be in the format field1, field2, field3, etc.. including the commas
 		//condition must be in the format insertField = insertValue
+		//for multiple conditions the AND and OR operators must be placed inbetween each condition
 		String query = "SELECT " + fields + " FROM " + table + " WHERE " + condition;
 
 		System.out.println(query);
@@ -53,10 +54,10 @@ public class UserData {
 	}
 
 	//Inserts a new row in to the designated table using the data
-	public int insertData(String table, String data) throws SQLException {
+	public int insertData(String table, String data, String columns) throws SQLException {
 		int results;
 
-		String query = "INSERT INTO " + table + " VALUES " + data; //data must be in the format (data1, data2, data3, etc....) including the parenthesis
+		String query = "INSERT INTO " + table + " " + columns + " VALUES " + data; //data and columns must be in the format (data1, data2, data3, etc....) including the parenthesis
 
 		PreparedStatement pstmt = conn.prepareStatement(query);
 		results = pstmt.executeUpdate();

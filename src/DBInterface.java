@@ -1,5 +1,7 @@
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.TreeMap;
 
 public class DBInterface {
 
@@ -21,6 +23,40 @@ public class DBInterface {
 			results.close();
 			return false;
 		}
+	}
+
+	public void register(String email, String password, String firstName, String lastName, int age) throws SQLException {
+
+		String columns = "(FirstName, LastName, Age, Password, Email)";
+		String data = "(" + firstName + ", " + lastName + ", " + Integer.toString(age) + ", " + password + ", " + email + ")";
+
+		userInfo.insertData("Users", data, columns);
+	}
+
+	//Searches the database for the designated fields and conditions
+	//fields must be in the format: field1, field2, field3, etc.. including the commas
+	//conditions must be in the format: field1 = value1 AND field2 = value2 AND field3 = value3 etc... The AND can be replaced with OR if that is the condition you wish to use
+	public ArrayList searchData(String table, String fields, String conditions) throws SQLException {
+
+		ResultSet results = userInfo.getData(table, fields, conditions);
+		ArrayList<TreeMap<String, String>> formattedResults = new ArrayList<TreeMap<String, String>>();
+
+		String[] fieldList = fields.split(", ");
+
+		while(results.next()) {
+
+			TreeMap<String, String> temp = new TreeMap<String, String>();
+
+			for(String field : fieldList) {
+				temp.put(field, results.getString(field));
+			}
+
+			formattedResults.add(temp);
+
+		}
+
+		System.out.println(formattedResults);
+		return formattedResults;
 	}
 
 	public void logout() throws SQLException {
