@@ -59,6 +59,23 @@ public class DBInterface {
 		return formattedResults;
 	}
 
+	public boolean addFriend(int idMain, int idFriend) throws SQLException {
+
+		//check if friend is already added
+		if(searchData("Friends", "IDFriend", "IDMain = " + idMain + " AND IDFriend = " + idFriend).size() == 0) {
+			userInfo.insertData("Friends", "(" + idMain + ", " + idFriend + ")", "(IDMain, IDFriend)");
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+
+	public boolean removeFriend(int idMain, int idFriend) throws SQLException {
+		userInfo.removeData("Friends", "IDMain = " + idMain + " AND IDFriend = " + idFriend);
+		return true;
+	}
+
 	public void logout() throws SQLException {
 		userInfo.closeConnection();
 	}

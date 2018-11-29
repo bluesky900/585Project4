@@ -58,12 +58,20 @@ public class UserData {
 		int results;
 
 		String query = "INSERT INTO " + table + " " + columns + " VALUES " + data; //data and columns must be in the format (data1, data2, data3, etc....) including the parenthesis
+		System.out.println(query);
 
 		PreparedStatement pstmt = conn.prepareStatement(query);
 		results = pstmt.executeUpdate();
 		pstmt.close();
 
 		return results;
+	}
+
+	public void removeData(String table, String conditions) throws SQLException {
+		String query = "DELETE FROM " + table + " WHERE " + conditions;
+		PreparedStatement pstmt = conn.prepareStatement(query);
+		pstmt.executeUpdate();
+
 	}
 
 	public void closeConnection() throws SQLException {
