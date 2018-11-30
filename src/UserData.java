@@ -67,11 +67,20 @@ public class UserData {
 		return results;
 	}
 
-	public void removeData(String table, String conditions) throws SQLException {
+	public int removeData(String table, String conditions) throws SQLException {
+		int numberDeleted;
+
 		String query = "DELETE FROM " + table + " WHERE " + conditions;
 		PreparedStatement pstmt = conn.prepareStatement(query);
-		pstmt.executeUpdate();
+		numberDeleted = pstmt.executeUpdate();
+		return numberDeleted;
 
+	}
+
+	public void updateData(String table, String updates, String conditions) throws SQLException {
+		String query = "UPDATE " + table + " SET " + updates + " WHERE " + conditions;
+		PreparedStatement pstmt = conn.prepareStatement(query);
+		pstmt.executeUpdate();
 	}
 
 	public void closeConnection() throws SQLException {

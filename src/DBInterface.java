@@ -71,9 +71,23 @@ public class DBInterface {
 		}
 	}
 
-	public boolean removeFriend(int idMain, int idFriend) throws SQLException {
-		userInfo.removeData("Friends", "IDMain = " + idMain + " AND IDFriend = " + idFriend);
+	public int removeFriend(int idMain, int idFriend) throws SQLException {
+		int numberDeleted = userInfo.removeData("Friends", "IDMain = " + idMain + " AND IDFriend = " + idFriend);
+		return numberDeleted;
+	}
+
+	public boolean addPost(int idOwner, String title, String content) throws SQLException {
+		userInfo.insertData("Posts", "(" + idOwner + ", " + title + ", " + content + ")", "(IDOwner, Title, Content)");
 		return true;
+	}
+
+	public int removePost(int idOwner, int idPost) throws SQLException {
+		int numberDeleted = userInfo.removeData("Posts", "IDOwner = " + idOwner + " AND IDPost = " + idPost);
+		return numberDeleted;
+	}
+
+	public void updateStatus(int idUser, String status) throws SQLException {
+		userInfo.updateData("Users", "Status=" + status + " ", "ID=" + idUser);
 	}
 
 	public void logout() throws SQLException {
