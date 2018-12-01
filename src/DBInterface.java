@@ -35,6 +35,7 @@ public class DBInterface {
 	public void register(String email, String password, String firstName, String lastName, int age) throws SQLException {
 
 		String encrypt = des.encrypt(password);
+		System.out.println(encrypt);
 		String columns = "(FirstName, LastName, Age, Password, Email)";
 		String data = "(" + firstName + ", " + lastName + ", " + Integer.toString(age) + ", '" + encrypt + "', " + email + ")";
 
