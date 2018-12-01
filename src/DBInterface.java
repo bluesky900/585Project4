@@ -6,9 +6,15 @@ import java.util.TreeMap;
 public class DBInterface {
 
 	UserData userInfo;
+	DES_EncryptionDecryption des;
 
 	public DBInterface() {
 		userInfo = new UserData();
+		try {
+			des = new DES_EncryptionDecryption();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	public Boolean login(String user, String password) throws SQLException {
@@ -16,7 +22,8 @@ public class DBInterface {
 
 		System.out.println("results: \n" + results.getString("password") + "\n" + password);
 
-		if(results.getString("password").equals(password)) {
+		String encrypt = des.encrypt(password);
+		if(results.getString("password").equals(encrypt)) {
 			results.close();
 			return true;
 		} else {
@@ -27,8 +34,9 @@ public class DBInterface {
 
 	public void register(String email, String password, String firstName, String lastName, int age) throws SQLException {
 
+		String encrypt = des.encrypt(password);
 		String columns = "(FirstName, LastName, Age, Password, Email)";
-		String data = "(" + firstName + ", " + lastName + ", " + Integer.toString(age) + ", " + password + ", " + email + ")";
+		String data = "(" + firstName + ", " + lastName + ", " + Integer.toString(age) + ", '" + encrypt + "', " + email + ")";
 
 		userInfo.insertData("Users", data, columns);
 	}
