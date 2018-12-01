@@ -8,8 +8,8 @@ import java.sql.Statement;
 public class UserData {
 
 	Connection conn;
-	String url = "jdbc:sqlite:/Users/Maaz/IdeaProjects/585Project4/fbLiteDB.db";
-
+	//String url = "jdbc:sqlite:/Users/Maaz/IdeaProjects/585Project4/fbLiteDB.db";
+	String url = "jdbc:sqlite:C:\\Users\\shah\\Desktop\\areeba\\fbLiteDB.db";
 	public UserData() {
 		System.out.println("Connecting to database...");
 		try {
