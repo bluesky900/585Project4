@@ -14,6 +14,7 @@ public class main extends Application {
         stage.setScene(scene);
         stage.setTitle("Facebook Lite");
         stage.show();
+        stage.setResizable(false);
         } catch (IOException e) {
             e.printStackTrace();
         }

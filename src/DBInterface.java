@@ -6,10 +6,10 @@ import java.util.TreeMap;
 public class DBInterface {
 
 	UserData userInfo;
-
 	public DBInterface() {
 		userInfo = new UserData();
 	}
+
 
 	public Boolean login(String user, String password) throws SQLException {
 		ResultSet results = userInfo.getData("Users", "password", "Email = " + user);
