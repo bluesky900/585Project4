@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.gluonhq.charm.glisten.control.SettingsPane?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+
+<AnchorPane prefHeight="594.0" prefWidth="398.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Friends">
+   <children>
+      <Pane prefHeight="600.0" prefWidth="401.0">
+         <children>
+            <MenuBar fx:id="menu" layoutY="3.0" prefHeight="33.0" prefWidth="402.0">
+              <menus>
+                <Menu mnemonicParsing="false" text="File">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Close" />
+                  </items>
+                </Menu>
+                  <Menu mnemonicParsing="false" text="Setting ">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Back" />
+                      <MenuItem mnemonicParsing="false" />
+                    </items>
+                  </Menu>
+              </menus>
+            </MenuBar>
+            <ListView fx:id="listView" layoutX="1.0" layoutY="121.0" prefHeight="480.0" prefWidth="402.0" />
+            <SettingsPane fx:id="settingpane" layoutX="-7.0" layoutY="37.0" prefHeight="82.0" prefWidth="410.0" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
