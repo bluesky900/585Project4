@@ -98,6 +98,13 @@ public class DBInterface {
 		userInfo.updateData("Users", "Status=" + status + " ", "ID=" + idUser);
 	}
 
+	//updates any data you request
+	//updates must be the data you desire to be uploaded in the format field1=value1, field2=value2, etc...
+	//conditions must be of the format field1 = value1 AND field2 = value2 AND field3 = value3 etc...
+	public void updateDate(String table, String updates, String conditions) throws SQLException {
+		userInfo.updateData(table, updates, conditions);
+	}
+
 	public void logout() throws SQLException {
 		userInfo.closeConnection();
 	}
