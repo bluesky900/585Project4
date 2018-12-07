@@ -34,6 +34,7 @@ public class Login {
         @Override
         public void initialize(URL url, ResourceBundle rb) {
 
+
         }
 
     }
