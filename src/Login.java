@@ -1,3 +1,5 @@
+package src;
+
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -8,7 +10,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 
-public class Login {
+public class Login{
 
     public class adduser implements Initializable {
 
@@ -26,6 +28,8 @@ public class Login {
         private TextField age;
         @FXML
         private Button signup;
+        @FXML
+        private Button repass;
 
 
         /**

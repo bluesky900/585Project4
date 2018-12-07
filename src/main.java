@@ -9,7 +9,7 @@ import java.sql.SQLException;
 
 public class main extends Application {
     public void start (Stage stage) throws Exception {
-        try {  Parent root = (Parent) FXMLLoader.load(getClass().getResource("login.fxml"));
+        try {  Parent root = (Parent) FXMLLoader.load(getClass().getResource("src/login.fxml"));
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.setTitle("Facebook Lite");
