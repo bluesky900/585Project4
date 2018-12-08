@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="724.0" prefWidth="879.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Viewaspublic">
+<children>
+    <AnchorPane prefHeight="724.0" prefWidth="879.0">
+        <children>
+            <SplitPane dividerPositions="0.1883720930232558" layoutX="5.0" layoutY="145.0" prefHeight="572.0" prefWidth="865.0">
+                <items>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="543.0" prefWidth="60.0">
+                        <children>
+                            <ListView fx:id="frendslist" prefHeight="570.0" prefWidth="159.0" />
+                        </children>
+                    </AnchorPane>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="570.0" prefWidth="565.0">
+                        <children>
+                            <TextArea fx:id="post" layoutX="10.0" prefHeight="570.0" prefWidth="696.0" text="posts&#10;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                        </children>
+                    </AnchorPane>
+                </items>
+            </SplitPane>
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="5.0" layoutY="107.0" prefHeight="38.0" prefWidth="159.0" style="-fx-background-position: center;" text="Friends" textAlignment="CENTER" textOverrun="CLIP">
+                <font>
+                    <Font name="Serif Bold Italic" size="24.0" />
+                </font>
+            </Label>
+            <Button fx:id="homepage" layoutX="715.0" layoutY="107.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="150.0" text="Home " />
+            <Label layoutX="14.0" layoutY="21.0" prefHeight="18.0" prefWidth="85.0" text="welcome ">
+                <font>
+                    <Font name="System Bold Italic" size="18.0" />
+                </font>
+            </Label>
+            <TextField fx:id="username" layoutX="99.0" layoutY="21.0" prefHeight="26.0" prefWidth="97.0" text="username" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="167.0" layoutY="106.0" prefHeight="20.0" prefWidth="59.0" text="Status : " textOverrun="CENTER_ELLIPSIS">
+                <font>
+                    <Font name="System Bold Italic" size="14.0" />
+                </font>
+            </Label>
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="518.0" layoutY="108.0" prefHeight="17.0" prefWidth="44.0" text="Age ">
+                <font>
+                    <Font name="System Bold" size="12.0" />
+                </font>
+            </Label>
+            <TextField fx:id="age" layoutX="562.0" layoutY="103.0" prefHeight="26.0" prefWidth="59.0" text="your age" />
+            <TextField fx:id="status" layoutX="233.0" layoutY="103.0" prefHeight="26.0" prefWidth="268.0" text="your status " />
+            <ComboBox fx:id="setting" layoutX="715.0" layoutY="72.0" prefWidth="150.0" promptText="Setting" AnchorPane.rightAnchor="14.0" />
+        </children>
+    </AnchorPane>
+</children>
+</AnchorPane>
