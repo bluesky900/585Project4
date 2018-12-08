@@ -55,6 +55,7 @@ public class LoginController implements Initializable{
                 //public void handle(ActionEvent event){
                     try
                     {
+                        System.out.println(e);
                         System.out.println(userID.getText());
                         System.out.println(passID.getText());
                         db.login("\'" + userID.getText() + "\'","\'" +  passID.getText() + "\'");

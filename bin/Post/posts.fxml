@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="525.0" prefWidth="440.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Posts">
+
+   <children>
+      <TextArea fx:id="post" layoutX="15.0" layoutY="58.0" prefHeight="457.0" prefWidth="410.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="58.0" />
+      <Label layoutX="14.0" layoutY="14.0" prefHeight="18.0" prefWidth="43.0" text="Hello " />
+      <TextField fx:id="username" layoutX="57.0" layoutY="11.0" />
+      <ComboBox fx:id="setting" layoutX="270.0" layoutY="12.0" prefWidth="150.0" promptText="Setting" />
+   </children>
+</AnchorPane>
