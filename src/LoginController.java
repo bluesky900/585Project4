@@ -1,7 +1,10 @@
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import sun.security.ssl.Debug;
@@ -44,7 +47,20 @@ public class LoginController implements Initializable{
 
         }
 
-        public void login(ActionEvent e) {
+        public void SignUp(ActionEvent e) {
+            try
+            {
+                Parent root = FXMLLoader.load(getClass().getResource("signup.fxml"));
+                Scene scene = new Scene(root);
+                main.getStage().setScene(scene);
+                main.getStage().setTitle("Facebook Lite - Create Account");
+                main.getStage().sizeToScene();
+
+            }
+            catch(Exception ea)
+            {
+
+            }
 
         }
 
@@ -55,15 +71,27 @@ public class LoginController implements Initializable{
                 //public void handle(ActionEvent event){
                     try
                     {
-                        System.out.println(e);
-                        System.out.println(userID.getText());
-                        System.out.println(passID.getText());
                         db.login("\'" + userID.getText() + "\'","\'" +  passID.getText() + "\'");
                         System.out.println("Login Successful");
+                        FXMLLoader loader =  new FXMLLoader(getClass().getResource("Homepage .fxml"));
+                        System.out.println(loader);
+                        Parent root = loader.load();
+
+                        //Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("Homepage .fxml"));
+                        Scene scene = new Scene(root);
+
+                        main.getStage().setScene(scene);
+
+                        main.getStage().sizeToScene();
+
+                        Hompage controller = loader.getController();
+                        controller.setUser(userID.getText());
                     }
                     catch (Exception ea)
                     {
                         System.out.println("Error in login");
+                        System.out.println(ea);
+                        //System.out.println(ea);
                     }
                 }
             //});

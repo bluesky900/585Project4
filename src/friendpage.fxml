@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="724.0" prefWidth="879.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Hompage">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Friendpage">
     <children>
         <AnchorPane prefHeight="724.0" prefWidth="879.0">
             <children>
@@ -17,7 +17,7 @@
                     <items>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="543.0" prefWidth="60.0">
                             <children>
-                                <ListView fx:id="friendslist" onMouseClicked="#GoToFriendPage" prefHeight="570.0" prefWidth="159.0" />
+                                <ListView fx:id="friendslist" onMouseClicked="#ChangePage" prefHeight="570.0" prefWidth="159.0" />
                             </children>
                         </AnchorPane>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="570.0" prefWidth="565.0">
@@ -50,7 +50,8 @@
                 </Label>
                 <TextField fx:id="age" layoutX="604.0" layoutY="110.0" prefHeight="26.0" prefWidth="59.0" text="your age" />
                 <TextField fx:id="status" layoutX="293.0" layoutY="102.0" prefHeight="26.0" prefWidth="223.0" text="your status " />
-            <Button fx:id="settings" layoutX="729.0" layoutY="21.0" mnemonicParsing="false" onAction="#OpenSettings" prefHeight="25.0" prefWidth="131.0" text="Settings" />
+            <Button layoutX="705.0" layoutY="21.0" mnemonicParsing="false" onAction="#GoHome" prefHeight="25.0" prefWidth="150.0" text="Home" />
+            <Label fx:id="friendPage" layoutX="99.0" layoutY="57.0" prefHeight="17.0" prefWidth="277.0" text="friend" />
             </children>
         </AnchorPane>
     </children>
