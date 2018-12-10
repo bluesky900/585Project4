@@ -15,6 +15,6 @@
             <CheckBox fx:id="hideFriends" layoutX="14.0" layoutY="121.0" mnemonicParsing="false" text="Hide Friends" />
          </children>
       </Pane>
-      <Button fx:id="closeBtn" layoutX="466.0" layoutY="300.0" mnemonicParsing="false" onAction="#CloseSettings" prefHeight="55.0" prefWidth="87.0" text="Button" />
+      <Button fx:id="closeBtn" layoutX="466.0" layoutY="300.0" mnemonicParsing="false" onAction="#CloseSettings" prefHeight="55.0" prefWidth="87.0" text="Close" />
    </children>
 </AnchorPane>

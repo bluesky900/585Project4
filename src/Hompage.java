@@ -1,3 +1,4 @@
+import com.idescout.sqlite.console.AddRowAction;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -10,7 +11,9 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.ListView;
 
 import java.awt.List;
+import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
@@ -63,7 +66,7 @@ public class Hompage implements Initializable {
         //setting.setItems(settingList);
         username.setEditable(false);
         age.setEditable(false);
-        status.setEditable(false);
+        status.setEditable(true);
         post.setText("");
         post.setEditable(false);
         postsOn = "";
@@ -99,13 +102,12 @@ public class Hompage implements Initializable {
 
             if(stsOn.equals("true"))
             {
-                System.out.println("Entered true");
                 sts = a.get(0).get("Status");
                 status.setText(sts);
             }
             else
             {
-                System.out.println("Entered false");
+               status.setEditable(false);
                 status.setText("HIDDEN");
             }
 
@@ -192,8 +194,40 @@ public class Hompage implements Initializable {
         }
         catch (Exception ea)
         {
-
+            System.out.println("Error opening settings");
         }
 
     }
+
+    public void Add() throws IOException, SQLException
+    {
+        FXMLLoader loader =  new FXMLLoader(getClass().getResource("AddRemove.fxml"));
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
+        main.getStage().setScene(scene);
+        main.getStage().sizeToScene();
+        AddRemoveController controller = loader.getController();
+        controller.UserList(userID, "a");
+    }
+
+    public void Remove() throws IOException, SQLException
+    {
+        FXMLLoader loader =  new FXMLLoader(getClass().getResource("AddRemove.fxml"));
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
+        main.getStage().setScene(scene);
+        main.getStage().sizeToScene();
+        AddRemoveController controller = loader.getController();
+        controller.UserList(userID, "r");
+    }
+
+    public void ChangeStatus() throws SQLException
+    {
+        if(!status.getText().equals("HIDDEN"))
+        {
+            System.out.println(status.getText());
+        }
+            db.updateStatus(Integer.parseInt(userID), "\'" + status.getText() + "\'");
+    }
+
 }

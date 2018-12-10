@@ -42,32 +42,32 @@ public class SettingsController implements Initializable {
             a = db.searchData("UserSettings", "DOB, Posts, Status", "IDUser = \'" + uID + "\'");
             if(a.get(0).get("DOB").equals("true"))
             {
-                hideStatus.setSelected(true);
+                hideAge.setSelected(false);
 
             }
             else
-            {
-                hideStatus.setSelected(false);
-
-            }
-            if(a.get(0).get("Status").equals("true"))
             {
                 hideAge.setSelected(true);
 
             }
+            if(a.get(0).get("Status").equals("true"))
+            {
+                hideStatus.setSelected(false);
+
+            }
             else
             {
-                hideAge.setSelected(false);
+                hideStatus.setSelected(true);
 
             }
             if(a.get(0).get("Posts").equals("true"))
             {
-                hidePosts.setSelected(true);
+                hidePosts.setSelected(false);
 
             }
             else
             {
-                hidePosts.setSelected(false);
+                hidePosts.setSelected(true);
 
             }
 
@@ -75,6 +75,9 @@ public class SettingsController implements Initializable {
             //{
 
            // }
+            System.out.println(a.get(0).get("DOB"));
+            System.out.println(a.get(0).get("Status"));
+            System.out.println(a.get(0).get("Posts"));
         }
         catch (Exception ea)
         {
@@ -85,6 +88,7 @@ public class SettingsController implements Initializable {
 
     public void CloseSettings()
     {
+
         try
         {
             if(hideStatus.isSelected())
@@ -101,7 +105,12 @@ public class SettingsController implements Initializable {
                 hp = "false";
             else
                 hp = "true";
-            db.updateDate("UserSettings", "DOB = \'" + ha + "\' AND Posts = \'" + hp + "\' AND Status = \'" + hs + "\'", "IDUser = \'" + uID + "\'");
+
+
+            System.out.println("\n" + ha);
+            System.out.println(hs);
+            System.out.println(hp);
+            db.updateDate("UserSettings", "DOB=\'" + ha + "\' AND Posts=\'" + hp + "\' AND Status=\'" + hs + "\'", "IDUser = \'" + uID + "\'");
             a = db.searchData("Users", "Email", "ID = \'" + uID + "\'");
             FXMLLoader loader =  new FXMLLoader(getClass().getResource("Homepage .fxml"));
             Parent root = loader.load();
