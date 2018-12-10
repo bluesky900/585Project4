@@ -24,6 +24,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import jdk.nashorn.internal.ir.CatchNode;
+import org.apache.poi.hssf.record.EscherAggregate;
 
 //import javax.swing.text.html.ListView;
 import javax.xml.soap.Text;
@@ -57,6 +59,10 @@ public class Hompage implements Initializable {
     private TextField status;
     @FXML
     private ListView friendslist;
+    @FXML
+    private TextField newPostField;
+    @FXML
+    private TextField newTitleField;
 
     private ObservableList<String> settingList = FXCollections.observableArrayList("Add", "Remove", "Hide");
 
@@ -65,7 +71,7 @@ public class Hompage implements Initializable {
 
         //setting.setItems(settingList);
         username.setEditable(false);
-        age.setEditable(false);
+        age.setEditable(true);
         status.setEditable(true);
         post.setText("");
         post.setEditable(false);
@@ -230,4 +236,85 @@ public class Hompage implements Initializable {
             db.updateStatus(Integer.parseInt(userID), "\'" + status.getText() + "\'");
     }
 
+    public void ChangeAge()
+    {
+        try
+        {
+            Integer.parseInt(age.getText());
+            if(!age.getText().equals("HIDDEN"))
+            {
+                System.out.println(age.getText());
+            }
+            db.updateDate("Users", "Age=\'" + age.getText() + "\'", "ID = \'" + userID + "\'");
+        }
+        catch (Exception ea)
+        {
+            System.out.println("\nError updating age\n");
+        }
+
+    }
+
+    public void NewPost()
+    {
+        try
+        {
+            if(!newPostField.getText().equals("") && !newTitleField.getText().equals(""))
+            {
+                db.addPost(Integer.parseInt(userID), "\'" + newTitleField.getText() + "\'", "\'" + newPostField.getText()+"\'");
+                RefreshPosts();
+            }
+        }
+        catch (Exception ea)
+        {
+            System.out.println("\nError creating post\n");
+        }
+    }
+
+    public void RefreshPosts()
+    {
+        try{
+            post.clear();
+            int temp = 0;
+            if(postsOn.equals("true"))
+            {
+                a = db.searchData("Posts", "Title, Content", "IDOwner = \'" + userID + "\'");
+
+                while(temp < a.size())
+                {
+                    post.setText(post.getText() + a.get(temp).get("Title") + "     " + a.get(temp).get("Content") + "\n\n");
+                    temp++;
+                }
+            }
+            else
+            {
+                post.setText("POSTS ARE HIDDEN");
+            }
+        }
+        catch (Exception ea)
+        {
+            System.out.println("\nError loading posts\n");
+        }
+
+    }
+
+    public void DeletePosts()
+    {
+        try
+        {
+            FXMLLoader loader =  new FXMLLoader(getClass().getResource("removePost.fxml"));
+            Parent root = loader.load();
+            //Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("Homepage .fxml"));
+            Scene scene = new Scene(root);
+            main.getStage().setScene(scene);
+            main.getStage().sizeToScene();
+
+            RemovePostController controller = loader.getController();
+            controller.Populate(userID);
+        }
+        catch (Exception ea)
+        {
+            System.out.println("\nFailed to load posts scene\n");
+        }
+
+    }
 }

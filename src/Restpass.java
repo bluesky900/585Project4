@@ -4,6 +4,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
@@ -19,11 +20,15 @@ public class Restpass implements Initializable {
     ArrayList<TreeMap<String, String>> a;
     String e;
 
+
     @FXML
     private TextField email;
 
     @FXML
     private Button submit;
+
+    @FXML
+    private Label eLabel;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -46,6 +51,23 @@ public class Restpass implements Initializable {
         catch (Exception e) {
             System.out.println("Error finding this email");
             System.out.println(e);
+            eLabel.setText("Email not found");
+        }
+    }
+
+    public void Cancel()
+    {
+        try{
+            FXMLLoader loader =  new FXMLLoader(getClass().getResource("login.fxml"));
+            System.out.println(loader);
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+            main.getStage().setScene(scene);
+            main.getStage().sizeToScene();
+        }
+        catch (Exception ea)
+        {
+            System.out.println("\nError loading login page\n");
         }
     }
 }
