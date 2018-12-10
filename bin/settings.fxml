@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SettingsController">
+   <children>
+      <Pane fx:id="checkBoxContainer" layoutX="200.0" layoutY="100.0" prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <CheckBox fx:id="hideStatus" layoutX="14.0" layoutY="26.0" mnemonicParsing="false" text="Hide Status" />
+            <CheckBox fx:id="hideAge" layoutX="14.0" layoutY="57.0" mnemonicParsing="false" text="Hide Age" />
+            <CheckBox fx:id="hidePosts" layoutX="14.0" layoutY="90.0" mnemonicParsing="false" text="Hide Posts" />
+            <CheckBox fx:id="hideFriends" layoutX="14.0" layoutY="121.0" mnemonicParsing="false" text="Hide Friends" />
+         </children>
+      </Pane>
+      <Button fx:id="closeBtn" layoutX="466.0" layoutY="300.0" mnemonicParsing="false" onAction="#CloseSettings" prefHeight="55.0" prefWidth="87.0" text="Close" />
+   </children>
+</AnchorPane>

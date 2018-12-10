@@ -51,9 +51,9 @@
                     </font>
                 </Label>
                 <TextField fx:id="age" layoutX="604.0" layoutY="110.0" prefHeight="26.0" prefWidth="59.0" text="your age" />
-                <TextField fx:id="status" layoutX="274.0" layoutY="111.0" prefHeight="25.0" prefWidth="223.0" text="your status " />
+                <TextField fx:id="status" layoutX="265.0" layoutY="110.0" prefHeight="26.0" prefWidth="223.0" text="your status " />
             <Button fx:id="settings" layoutX="729.0" layoutY="21.0" mnemonicParsing="false" onAction="#OpenSettings" prefHeight="25.0" prefWidth="131.0" text="Settings" />
-            <Button fx:id="saveBtn" layoutX="495.0" layoutY="111.0" mnemonicParsing="false" onAction="#ChangeStatus" prefHeight="25.0" prefWidth="44.0" text="Save" />
+            <Button fx:id="saveBtn" layoutX="488.0" layoutY="111.0" mnemonicParsing="false" onAction="#ChangeStatus" prefHeight="25.0" prefWidth="44.0" text="Save" />
             </children>
         </AnchorPane>
     </children>

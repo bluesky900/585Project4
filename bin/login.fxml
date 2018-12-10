@@ -14,7 +14,7 @@
       <Label layoutX="19.0" layoutY="96.0" text="Username" />
       <Label layoutX="20.0" layoutY="143.0" text="Password" />
       <Button fx:id="login" layoutX="80.0" layoutY="219.0" mnemonicParsing="false" onAction="#LoginHandler" prefHeight="26.0" prefWidth="94.0" text="Log In" />
-      <Button fx:id="signup" layoutX="190.0" layoutY="219.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="94.0" text="Sign Up" />
+      <Button fx:id="signup" layoutX="190.0" layoutY="219.0" mnemonicParsing="false" onAction="#SignUp" prefHeight="26.0" prefWidth="94.0" text="Sign Up" />
       <Label layoutX="116.0" layoutY="31.0" prefHeight="18.0" prefWidth="118.0" text="Facebook">
          <font>
             <Font size="24.0" />

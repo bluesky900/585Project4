@@ -1,6 +1,9 @@
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
@@ -45,16 +48,16 @@ public class SignupController implements Initializable{
 
             db.register("\'" + email.getText() + "\'","\'" +  newpass.getText() + "\'", "\'" + firstname.getText() + "\'", "\'" + lastname.getText() + "\'", temp);
             System.out.println("Registration Successful");
+
+            Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
+            Scene scene = new Scene(root);
+            main.getStage().setScene(scene);
+            main.getStage().setTitle("Facebook Lite");
+            main.getStage().sizeToScene();
         }
         catch (Exception ea)
         {
-
             System.out.println("Error in registration");
-            System.out.println(email.getText());
-            System.out.println(newpass.getText());
-            System.out.println(firstname.getText());;
-            System.out.println(lastname.getText());
-            System.out.println(temp);
         }
     }
 
