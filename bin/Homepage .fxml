@@ -22,9 +22,23 @@
                         <Button layoutX="93.0" layoutY="532.0" mnemonicParsing="false" onAction="#Remove" text="Remove" />
                             </children>
                         </AnchorPane>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="570.0" prefWidth="565.0">
+                        <AnchorPane fx:id="postBtn" minHeight="0.0" minWidth="0.0" prefHeight="570.0" prefWidth="565.0">
                             <children>
-                                <TextArea fx:id="post" layoutX="10.0" prefHeight="570.0" prefWidth="696.0" text="posts&#10;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                <TextArea fx:id="post" layoutX="10.0" prefHeight="504.0" prefWidth="697.0" text="posts&#10;" AnchorPane.bottomAnchor="66.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                        <TextField fx:id="newPostField" layoutX="124.0" layoutY="504.0" prefHeight="25.0" prefWidth="476.0" />
+                        <Button fx:id="pstBtn" layoutX="602.0" layoutY="504.0" mnemonicParsing="false" onAction="#NewPost" prefHeight="25.0" prefWidth="91.0" text="Create Post" />
+                        <TextField fx:id="newTitleField" layoutY="504.0" prefHeight="25.0" prefWidth="121.0" />
+                        <Label fx:id="Titlelbl" alignment="TOP_CENTER" layoutX="7.0" layoutY="529.0" prefHeight="26.0" prefWidth="71.0" text="Title:">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="TOP_CENTER" layoutX="121.0" layoutY="529.0" prefHeight="30.0" prefWidth="114.0" text="Content:">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="dltPstBtn" layoutX="602.0" layoutY="544.0" mnemonicParsing="false" onAction="#DeletePosts" prefHeight="25.0" prefWidth="91.0" text="Delete Posts" />
                             </children>
                         </AnchorPane>
                     </items>
@@ -51,9 +65,17 @@
                     </font>
                 </Label>
                 <TextField fx:id="age" layoutX="604.0" layoutY="110.0" prefHeight="26.0" prefWidth="59.0" text="your age" />
-                <TextField fx:id="status" layoutX="265.0" layoutY="110.0" prefHeight="26.0" prefWidth="223.0" text="your status " />
+                <TextField fx:id="status" layoutX="274.0" layoutY="111.0" prefHeight="25.0" prefWidth="223.0" text="your status " />
             <Button fx:id="settings" layoutX="729.0" layoutY="21.0" mnemonicParsing="false" onAction="#OpenSettings" prefHeight="25.0" prefWidth="131.0" text="Settings" />
-            <Button fx:id="saveBtn" layoutX="488.0" layoutY="111.0" mnemonicParsing="false" onAction="#ChangeStatus" prefHeight="25.0" prefWidth="44.0" text="Save" />
+            <Button fx:id="saveBtn" layoutX="495.0" layoutY="111.0" mnemonicParsing="false" onAction="#ChangeStatus" prefHeight="25.0" prefWidth="44.0" text="Update">
+               <font>
+                  <Font size="9.0" />
+               </font></Button>
+            <Button fx:id="ageBtn" layoutX="663.0" layoutY="110.0" mnemonicParsing="false" onAction="#ChangeAge" prefHeight="25.0" prefWidth="44.0" text="Update">
+               <font>
+                  <Font size="9.0" />
+               </font>
+            </Button>
             </children>
         </AnchorPane>
     </children>
