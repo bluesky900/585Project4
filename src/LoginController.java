@@ -7,8 +7,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import sun.security.ssl.Debug;
-import sun.swing.SwingLazyValue;
+//import sun.security.ssl.Debug;
+//import sun.swing.SwingLazyValue;
 
 import javax.swing.Action;
 //import java.awt.event.ActionListener;
@@ -45,6 +45,22 @@ public class LoginController implements Initializable{
         @Override
         public void initialize(URL url, ResourceBundle rb) {
 
+        }
+
+        public void RePass(ActionEvent e) {
+            try
+            {
+                Parent root = FXMLLoader.load(getClass().getResource("Restpass.fxml"));
+                Scene scene = new Scene(root);
+                main.getStage().setScene(scene);
+                main.getStage().setTitle("Facebook Lite - Confirm Email");
+                main.getStage().sizeToScene();
+
+            }
+            catch(Exception ea)
+            {
+
+            }
         }
 
         public void SignUp(ActionEvent e) {

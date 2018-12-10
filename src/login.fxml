@@ -20,6 +20,6 @@
             <Font size="24.0" />
          </font>
       </Label>
-      <Button fx:id="repass" layoutX="129.0" layoutY="263.0" mnemonicParsing="false" text="Reset password" />
+      <Button fx:id="repass" layoutX="129.0" layoutY="263.0" mnemonicParsing="false" onAction="#RePass" text="Reset password" />
    </children>
 </AnchorPane>
