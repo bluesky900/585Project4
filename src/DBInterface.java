@@ -41,7 +41,7 @@ public class DBInterface {
 		userInfo.insertData("Users", data, columns);
 		int temp = userInfo.getData("Users", "ID", "Email = " + email).getInt("ID");
 		System.out.print("NEW USER ID: " + temp);
-		userInfo.insertData("UserSettings", "(" + Integer.toString(temp) + ", 1, 1, 1)", "(IDUser, DOB, Posts, Status)");
+		userInfo.insertData("UserSettings", "(" + Integer.toString(temp) + ", 1, 1, 1, 1)", "(IDUser, DOB, Posts, Status, Friends)");
 	}
 
 	//Searches the database for the designated fields and conditions
