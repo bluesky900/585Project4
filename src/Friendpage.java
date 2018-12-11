@@ -28,6 +28,7 @@ public class Friendpage implements Initializable {
     private String ageOn;
     private String stsOn;
     private String postsOn;
+    private String friendOn;
     private String fAge;
     private String sts;
 
@@ -67,21 +68,23 @@ public class Friendpage implements Initializable {
         username.setText(user);
         friendPage.setText(friend + "'s Page");
         HideStuff();
-        PopFriends();
+        if(friendOn.equals("1"))
+            PopFriends();
     }
 
     public void HideStuff()
     {
         try{
-            a = db.searchData("UserSettings", "DOB, Posts, Status", "IDUser = \'" + fID + "\'");
+            a = db.searchData("UserSettings", "DOB, Posts, Status, Friends", "IDUser = \'" + fID + "\'");
             b = db.searchData("Users", "Age, Status", "ID = \'" + fID + "\'");
             System.out.println("Homepage loaded correctly");
 
             ageOn = a.get(0).get("DOB");
             stsOn = a.get(0).get("Status");
             postsOn = a.get(0).get("Posts");
+            friendOn = a.get(0).get("Friends");
 
-            if(ageOn.equals("true"))
+            if(ageOn.equals("1"))
             {
                 fAge = b.get(0).get("Age");
                 age.setText(fAge);
@@ -92,7 +95,7 @@ public class Friendpage implements Initializable {
                 System.out.println("Items properly hidden");
             }
 
-            if(stsOn.equals("true"))
+            if(stsOn.equals("1"))
             {
                 sts = b.get(0).get("Status");
                 status.setText(sts);
@@ -105,7 +108,7 @@ public class Friendpage implements Initializable {
             }
 
             int t = 0;
-            if(postsOn.equals("true"))
+            if(postsOn.equals("1"))
             {
                 a = db.searchData("Posts", "Title, Content", "IDOwner = \'" + fID + "\'");
 
